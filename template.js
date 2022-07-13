@@ -7,7 +7,7 @@ module.exports = {
   name: 'NAME',
   description: 'DESCRIPTION',
   execute: async (client, message, _args, db) => {
-    const tamper = await db.get(`tamper_${message.guild.id}`)
+    let tamper = await db.get(`tamper_${message.guild.id}`)
     // ...
   }
 }

@@ -8,7 +8,7 @@ module.exports = {
     execute: async (client, message, args, db) => {
         const food = args.length > 0
             ? args.join('')
-            : null
+            : null;
 
         message.channel.send({
             content: handleFeed(feed(food)),

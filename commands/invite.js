@@ -6,8 +6,8 @@ module.exports = {
   name: 'invite',
   description: 'DESCRIPTION',
   execute: async (client, message, _args, db) => {
-    // const tamper = await db.get(`tamper_${message.guild.id}`)
-    const embed = new MessageEmbed().setColor(client.color)
+    // let tamper = await db.get(`tamper_${message.guild.id}`)
+    const embed = new MessageEmbed().setColor(client.color);
     message.channel.send({
       embeds: [
         embed

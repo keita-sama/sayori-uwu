@@ -6,7 +6,7 @@ module.exports = {
   name: 'ping',
   description: '',
   execute: async (client, message, _args, db) => {
-    // const tamper = await db.get(`tamper_${message.guild.id}`)
+    // let tamper = await db.get(`tamper_${message.guild.id}`)
     // if (tamper === null) tamper = false
     const embed = new MessageEmbed().setColor(client.color);
     message.channel.send({

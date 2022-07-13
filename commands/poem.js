@@ -10,7 +10,7 @@ module.exports = {
     name: 'poem',
     description: '',
     execute: async (client, message, args, db) => {
-        const tamper = await db.get(`tamper_${message.guild.id}`);
+        let tamper = await db.get(`tamper_${message.guild.id}`);
         if (tamper === null) tamper = false;
         const embed = new MessageEmbed().setColor(client.color);
         const chosenPoem = args.join(' ');
@@ -41,7 +41,7 @@ module.exports = {
             }
         }
         else {
-            const tamperedPoem = poems.tampered.random();
+            let tamperedPoem = poems.tampered.random();
             message.channel.send({
                 embeds: [
                     embed.setTitle(tamperedPoem.name).setDescription(tamperedPoem.value),
