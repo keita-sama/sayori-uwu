@@ -1,2 +1,5 @@
 .env
+.vscode
+.replit
 node_modules
+replit.nix
