@@ -3,7 +3,7 @@
 const { Sayori } = require('./misc/Client');
 const Database = require('@replit/database');
 const db = new Database(process.env.db_token);
-require('dotenv').config()
+require('dotenv').config();
 exports.db = db;
 
 const sayori = new Sayori({
