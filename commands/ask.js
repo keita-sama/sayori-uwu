@@ -1,3 +1,5 @@
+'use strict';
+
 require('../misc/functions');
 const { randomString } = require('../misc/functions');
 

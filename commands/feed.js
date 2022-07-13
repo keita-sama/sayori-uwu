@@ -1,3 +1,5 @@
+'use strict';
+
 const { feed, handleFeed } = require('../data');
 
 module.exports = {

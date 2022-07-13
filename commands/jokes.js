@@ -1,3 +1,5 @@
+'use strict';
+
 require('../misc/functions')
 
 module.exports = {
@@ -43,7 +45,7 @@ module.exports = {
         ];
 
         message.channel.send({
-          content: jokes.random()
+            content: jokes.random()
         })
     }
 }

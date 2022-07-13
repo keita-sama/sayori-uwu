@@ -1,4 +1,6 @@
 /*
+'use strict';
+
 require('../misc/functions');
 
 module.exports = {

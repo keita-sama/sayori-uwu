@@ -1,7 +1,9 @@
+'use strict';
+
 const { Sayori } = require('./misc/Client');
 const Database = require('@replit/database');
-require('dotenv').config()
 const db = new Database(process.env.db_token);
+require('dotenv').config()
 exports.db = db;
 
 const sayori = new Sayori({

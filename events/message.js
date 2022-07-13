@@ -1,3 +1,5 @@
+'use strict';
+
 const { db } = require('../index');
 const { handlePrefixes } = require('../misc/functions');
 

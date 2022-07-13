@@ -1,3 +1,5 @@
+'use strict';
+
 const handlePrefixes = (prefixes, text) => {
   for (const prefix of prefixes) {
     if (text.startsWith(prefix)) {
