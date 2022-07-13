@@ -1,6 +1,6 @@
 ## Ehehe~
 
-A recreation of a popular Sayori bot before she went down.
+A recreation of a popular Sayori bot that went down.
 
 - [x] ask 
 - [ ] changelog
@@ -9,7 +9,8 @@ A recreation of a popular Sayori bot before she went down.
 - [x] headpat
 - [ ] help
 - [ ] hug
-- [ ] invite - To where?
+- [ ] support - Not planned
+- [x] invite
 - [x] jokes
 - [x] lifeline
 - [x] ping
