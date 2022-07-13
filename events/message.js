@@ -1,14 +1,14 @@
-const { db } = require('../index')
+const { db } = require('../index');
 const { handlePrefixes } = require('../misc/functions');
 
 module.exports = {
     name: 'messageCreate',
     once: false,
     execute(message) {
-        if (!message.client.prefixes.some(pre => message.content.startsWith(pre)) || message.author.bot) return;
+        if (!message.client.prefixes.some(pre => message.content.toLowerCase().startsWith(pre)) || message.author.bot) return;
         if (message.client.devMode) {
             if (!message.client.developers.includes(message.author.id)) {
-                return message.channel.send('Sorry, but I\'m currently in Developer mode!')
+                return message.channel.send('Sorry, but I\'m currently in Developer mode!');
             }
         }
         const args = message.content.slice(handlePrefixes(message.client.prefixes, message.content).length).trim().split(/ +/);
@@ -25,5 +25,5 @@ module.exports = {
             console.log(err);
             message.channel.send('Something went wrong :(');
         }
-    }
-}
+    },
+};

@@ -1,27 +1,27 @@
-const { handlePrefixes } = require('./misc/functions');
 const { Sayori } = require('./misc/Client');
 const Database = require('@replit/database');
-const db = new Database()
+require('dotenv').config()
+const db = new Database(process.env.db_token);
 exports.db = db;
 
 const sayori = new Sayori({
   intents: [
     'GUILDS',
-    'GUILD_MESSAGES'
+    'GUILD_MESSAGES',
   ],
   prefixes: [
     's_',
     'sayori_',
     '<@871877648547205180> ',
-    '<@!871877648547205180> '
+    '<@!871877648547205180> ',
   ],
-  devMode: false
+  devMode: false,
 });
 
-const handlers = require('fs').readdirSync('./handlers')
+const handlers = require('fs').readdirSync('./handlers');
 for (const handler of handlers) {
-    require(`./handlers/${handler}`)(sayori);
+  require(`./handlers/${handler}`)(sayori);
 }
 
 
-sayori.wakeUp()
+sayori.wakeUp(process.env.token);

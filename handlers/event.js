@@ -11,4 +11,4 @@ module.exports = (client) => {
             client.on(event.name, (...args) => event.execute(...args));
         }
     }
-}
+};

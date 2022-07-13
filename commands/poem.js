@@ -9,14 +9,14 @@ module.exports = {
     description: '',
     execute: async (client, message, args, db) => {
         const tamper = await db.get(`tamper_${message.guild.id}`);
-        if (tamper === null) tamper = false
+        if (tamper === null) tamper = false;
         const embed = new MessageEmbed().setColor(client.color);
         const chosenPoem = args.join(' ');
 
         if (tamper === null || tamper === false) {
             if (args.length > 1) {
                 try {
-                    const poem = poems.normal.find(poem => poem.name === strFormat(chosenPoem));
+                    const poem = poems.normal.find(poetry => poetry.name === strFormat(chosenPoem));
                     message.channel.send({
                         embeds: [
                             embed.setTitle(poem.name).setDescription(poem.value),
