@@ -1,8 +1,11 @@
 'use strict';
 
 const { Sayori } = require('./misc/Client');
+const { server } = require('./server')
+
 const Database = require('@replit/database');
 const db = new Database(process.env.db_token);
+
 require('dotenv').config();
 exports.db = db;
 
@@ -25,5 +28,5 @@ for (const handler of handlers) {
   require(`./handlers/${handler}`)(sayori);
 }
 
-
+server()
 sayori.wakeUp(process.env.token);
