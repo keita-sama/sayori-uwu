@@ -10,7 +10,9 @@ module.exports = {
     const embed = new MessageEmbed().setColor(client.color)
     message.channel.send({
       embeds: [
-        embed.setDescription('Sorry, but this bot isn\'t ready yet!'),
+        embed
+          .setTitle('Invite Sayori!')
+          .setDescription('Sorry, but this bot isn\'t ready yet!'),
       ],
     });
   },
