@@ -2,11 +2,10 @@
 
 require('dotenv').config();
 const { Sayori } = require('./misc/Client');
-// const { server } = require('./server');
+const { server } = require('./server');
 
 const Database = require('@replit/database');
 const db = new Database(process.env.db_token);
-
 
 exports.db = db;
 
@@ -29,5 +28,22 @@ for (const handler of handlers) {
   require(`./handlers/${handler}`)(sayori);
 }
 
-// server();
+server();
 sayori.wakeUp(process.env.token);
+
+// handle errors
+process.on('unhandledRejection', err => {
+  console.log(err.stack);
+});
+
+process.on('uncaughtException', err => {
+  console.log(err.stack);
+});
+
+process.on('exit', err => {
+  console.log(err.stack);
+});
+
+process.on('multipleResolves', err => {
+  console.log(err.stack);
+});

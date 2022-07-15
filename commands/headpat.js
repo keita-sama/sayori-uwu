@@ -11,7 +11,7 @@ module.exports = {
         // if (tamper === null) tamper = false
 
         message.channel.send({
-            content: headpatRes.random(),
+            content: headpatResponses.random(),
         });
     },
 };

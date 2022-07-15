@@ -83,6 +83,27 @@ const tickle = [
     `PFFFT BWA${'HA'.repeat(Math.floor(Math.random() * 5) + 1)}-`,
 ];
 
+const commands = {
+    'ask [question]': 'Ask Sayori anything you want to ask.',
+    'changelog': 'See the latest changes. (alias: log)',
+    'debug': 'View Sayori\'s statistics.',
+    'feed [emote]': 'Give Sayori food. (alias: eat)',
+    'headpat': 'Headpat Sayori. (alias: pat)',
+    'help [about]': 'Help about Sayori. (alias: manual)',
+    'hug [person]': 'Let Sayori hug someone.',
+    'invite': 'Invite Sayori to your server.',
+    'jokes': 'Sayori will tell you a funy joke. (alias: joke)',
+    'lifeline': 'If you feel suicidal, please let Sayori help.',
+    'ping': 'Get Sayori\'s heartbeat. (alias: doki)',
+    'poems [poem name]': 'Get Sayori\'s poems from the game. (alias: poem)',
+    'quotes': 'Get Sayori\'s quotes from the game. (alias: quote)',
+    'shard': 'Check which shard are you on for Sayori.',
+    'swear': 'Sayori will say a forbidden word.',
+    'tamper': 'Mess up or fix Sayori\'s personality.',
+    'tickle': 'Tickle Sayori.',
+    'trigger': 'Set triggers for Sayori on/off. (alias: triggers)',
+};
+
 const askResponses = [
     ['Yes', 'Of course', 'Of course no', 'No', 'Maybe', 'Possibly'].random() + ['!', '.'].random(),
     'My vice president powers ' + ['says ', 'tells me '].random() + ['\'yes\'!', '\'no\'!', '\'maybe\'!'].random(),
@@ -402,9 +423,58 @@ function handleFeed(opt) {
     }
 }
 
+const hang_reg = /(^|[^A-Za-z])h(a|u)ng(s|ing|ed)?([^A-Za-z]|$)/
+const kill_reg = /(^|[^A-Za-z])kill(s|ing|ed)?([^A-Za-z]|$)/
+const hangKillSelf_reg = /(^|[^A-Za-z])(h(a|u)ng(s|ing|ed)?|kill(s|ing|ed)?) *(my)?self([^A-Za-z]|$)/
+const bully_reg = /(^|[^A-Za-z])(mean(y|ies?)|bull(y|i|ies))([^A-Za-z]|$)/
+const breakfast_reg = /(^|[^A-Za-z])breakfasts?([^A-Za-z]|$)/
+const cinnamonBun_reg = /(^|[^A-Za-z])cinnamon *bun([^A-Za-z]|$)/
+
+function trigger(text) {
+    if (hang_reg.test(text)) {
+        return [
+            ':unamused:',
+            'Hey! Stop acting like a meanie!',
+            ':rolling_eyes:',
+            'I thought we were better than this...',
+            'Ha, ha. Funny. Can you sense my sarcasm?',
+        ].random();
+    }
+    else if (kill_reg.test(text)) {
+        return 'Can we change the topic to something more wholesome please?';
+    }
+    else if (hangKillSelf_reg.test(text)) {
+        return [
+            'H-Hey! There\'s no need to do that, I promise you! Someone out there still wants you to keep going, I\'m sure!',
+            'If I\'m reading this right, then it sounds like you\'re thinking of doing something terrible. Please, don\'t do it!',
+            'Listen, I\'ve been where you are. You\'ll get through it, I promise.',
+            'Here, this is the National Suicide Prevention Lifeline. They\'ll be able to help you, I promise! 1-800-273-8255',
+        ].random();
+    }
+    else if (breakfast_reg.test(text)) {
+        return 'I want breakfast.';
+    }
+    else if (cinnamonBun_reg.test(text)) {
+        return [
+            'Did someone mention me?',
+            'You rang?',
+            'Are you guys talking about me?',
+        ].random();
+    }
+    else if (bully_reg.test(text)) {
+      return [
+            'Do we have a meanie in the server? If so, please stop.',
+            'Cease your bulli, you meanie!',
+            'Boo! You meanie...',
+        ].random();
+    } 
+    else return 'None'
+}
+
 // Functions
 exports.handleFeed = handleFeed;
 exports.feed = feed;
+exports.trigger = trigger
 
 // Data
 exports.poems = poems;
@@ -414,4 +484,5 @@ exports.swearWords = swearWords;
 exports.tickle = tickle;
 exports.askResponses = askResponses;
 exports.headpatResponses = headpatResponses;
+exports.commands = commands;
 // I think I've  lost my mind
