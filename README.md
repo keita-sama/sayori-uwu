@@ -4,10 +4,10 @@ A recreation of a popular Sayori bot that went down.
 
 - [x] ask 
 - [ ] changelog
-- [ ] debug - Not planned?
+- [ ] debug
 - [x] feed
 - [x] headpat
-- [ ] help
+- [x] help
 - [ ] hug
 - [ ] support - Not planned
 - [x] invite
@@ -19,6 +19,6 @@ A recreation of a popular Sayori bot that went down.
 - [x] swear
 - [x] tamper
 - [x] tickle
-- [ ] trigger
+- [x] trigger
 
 **\~STILL IN PROGRESS\~**
