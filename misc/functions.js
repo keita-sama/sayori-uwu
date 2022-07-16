@@ -1,8 +1,6 @@
 'use strict';
 
-const handlePrefixes = (prefixes, text) => {
-  return prefixes.find(pre => text.startsWith(pre)) || null
-};
+const handlePrefixes = (prefixes, text) => prefixes.find(pre => text.startsWith(pre)) || null;
 
 const randomString = (keywords) => {
   const output = [];

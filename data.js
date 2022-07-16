@@ -13,7 +13,7 @@ const poems = {
     },
     ],
     tampered: [{
-        name: '',
+        name: 'g̵̘̺̩͝ė̶̢̡̡̍͌́t̶̼̾ͅ ̶̩̬̞̈́͂ỏ̷̘̑u̴̖̝̔͆ţ̴͍̝͓̃ ̴̡͓͓͓̇͗o̶̳̔̌f̵̖̓͗͛̕ ̸̩̤̈́̂͌̊m̸̲̲̽̀̌̇ỳ̸̢͊ ̵̫̟͓̭͘h̵̲̮̹̅̈́̾̈́è̵̫̬͜͠a̶̩̼̺̪̓d̸͇̈́̈́̓͝',
         value: 'Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of my head. Get out of\nGet.\nOut.\nOf.\nMy.\nHead.\n\n\nGet out of my head before I do what I know is best for you.\nGet out of my head before I listen to everything she said to me.\nGet out of my head before I show you how much I love you.\nGet out of my head before I finish writing this poem.\n\n\n\nBut a poem is never actually finished.\nIt just stops moving."',
     }],
 };
@@ -348,24 +348,26 @@ const foodResponses = {
         'Oooo! Thanks I\'ll have piece of Monika\'s birthday cake! And I\'ll have another piece, of the one that Natsuki made eheheh~',
     ],
     misc:'*om nom nom* Thank you! That was delicious! :grin:',
-    bad_food: 'Ptoo ptoo! This isn\'t food, you meanie!'
-}
+    bad_food: 'Ptoo ptoo! This isn\'t food, you meanie!',
+};
 
 function handleFeed(opt) {
-    const item = opt[0]
-    
-    if (item.isArray()) {
-      return item.random();
+    const item = opt[0];
+
+    if (isArray(foodResponses[item])) {
+      return foodResponses[item].random();
     }
-    else return item;
+    else {
+        return foodResponses[item];
+    }
 }
 
-const hang_reg = /(^|[^A-Za-z])h(a|u)ng(s|ing|ed)?([^A-Za-z]|$)/
-const kill_reg = /(^|[^A-Za-z])kill(s|ing|ed)?([^A-Za-z]|$)/
-const hangKillSelf_reg = /(^|[^A-Za-z])(h(a|u)ng(s|ing|ed)?|kill(s|ing|ed)?) *(my)?self([^A-Za-z]|$)/
-const bully_reg = /(^|[^A-Za-z])(mean(y|ies?)|bull(y|i|ies))([^A-Za-z]|$)/
-const breakfast_reg = /(^|[^A-Za-z])breakfasts?([^A-Za-z]|$)/
-const cinnamonBun_reg = /(^|[^A-Za-z])cinnamon *bun([^A-Za-z]|$)/
+const hang_reg = /(^|[^A-Za-z])h(a|u)ng(s|ing|ed)?([^A-Za-z]|$)/;
+const kill_reg = /(^|[^A-Za-z])kill(s|ing|ed)?([^A-Za-z]|$)/;
+const hangKillSelf_reg = /(^|[^A-Za-z])(h(a|u)ng(s|ing|ed)?|kill(s|ing|ed)?) *(my)?self([^A-Za-z]|$)/;
+const bully_reg = /(^|[^A-Za-z])(mean(y|ies?)|bull(y|i|ies))([^A-Za-z]|$)/;
+const breakfast_reg = /(^|[^A-Za-z])breakfasts?([^A-Za-z]|$)/;
+const cinnamonBun_reg = /(^|[^A-Za-z])cinnamon *bun([^A-Za-z]|$)/;
 
 function trigger(text) {
     if (hang_reg.test(text)) {
@@ -404,14 +406,16 @@ function trigger(text) {
             'Cease your bulli, you meanie!',
             'Boo! You meanie...',
         ].random();
-    } 
-    else return 'None'
+    }
+    else {
+        return 'None';
+    };
 }
 
 // Functions
 exports.handleFeed = handleFeed;
 exports.feed = feed;
-exports.trigger = trigger
+exports.trigger = trigger;
 
 // Data
 exports.poems = poems;

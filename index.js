@@ -5,7 +5,7 @@ const { Sayori } = require('./misc/Client');
 const { server } = require('./server');
 
 const Database = require('@replit/database');
-const db = new Database(process.env.db_token);
+const db = new Database();
 
 exports.db = db;
 
@@ -32,18 +32,7 @@ server();
 sayori.wakeUp(process.env.token);
 
 // handle errors
-process.on('unhandledRejection', err => {
-  console.log(err.stack);
-});
-
-process.on('uncaughtException', err => {
-  console.log(err.stack);
-});
-
-process.on('exit', err => {
-  console.log(err.stack);
-});
-
-process.on('multipleResolves', err => {
-  console.log(err.stack);
-});
+process.on('unhandledRejection', err => console.log(err.stack));
+process.on('uncaughtException', err => console.log(err.stack));
+process.on('exit', err => console.log(err.stack));
+process.on('multipleResolves', err => console.log(err.stack));

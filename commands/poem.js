@@ -41,7 +41,7 @@ module.exports = {
             }
         }
         else {
-            let tamperedPoem = poems.tampered.random();
+            const tamperedPoem = poems.tampered.random();
             message.channel.send({
                 embeds: [
                     embed.setTitle(tamperedPoem.name).setDescription(tamperedPoem.value),
