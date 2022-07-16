@@ -305,122 +305,59 @@ function feed(text) {
     return arr;
 }
 
+const foodResponses = {
+    nothing: 'You wanna feed me something? I\'m open for anything!',
+    cookie:'A cookie?? Yummy! Thank you so much!',
+    cupcake:'*omnomnom* Ooo! This tastes just like Natsuki\'s cupcakes!',
+    japanese: 'Oooo! Japanese food! Reminds me of home!',
+    takeout:'Yay we\'re getting take out! I love watching a movie with some warm takeout!',
+    pizza:'I love pizza! Thanks!',
+    burger:'Mmmmm! Burgers are delicious!',
+    falafel:'*om nom nom* It\'s salty, but I like it.',
+    ice:'Puts it in mouth  Oww.. It\'s too cold and it tastes like water!',
+    cold:'AHH! Brain freeze!!',
+    cold_drink:'Sip, sip, hooray!',
+    canned:'Canned food? Aww but I don\'t have a can opener.',
+    alcohol:'H-Hey! I\'m too young for that!',
+    coffee:'Ah, the delicious beverage known as coffee! Where would I be without thee?',
+    tea:'How could I refuse a hot cup of tea? Thank you!',
+    bread:'I mean, I suppose I could survive off of plain bread...',
+    sandwhich:'Oh! is this for me? thanks I love sandwiches!',
+    waffle:'I\'ve waffled before. I\'ll waffle again!!',
+    croissant:'yay! I love having these for breakfast!',
+    pasteries:[
+        'Mmm this is really yummy but I bet Natsuki can make better ones!',
+        'Ooooo! I love these! thanks!',
+    ],
+    butter:'Oooo, Butter! But... how am I supposed to eat it without some toast?',
+    pepper:'***OWOWOWOWHOTHOTHOTHOT!!!***',
+    cooking:'I made eggs and toast!',
+    mexican:'Ole!',
+    sweets:'Sweets! My one, true weakness!! *omnomnomnomnom*',
+    peanuts:'Ooo! peanuts! they always make me remember when MC and I went to the fair as kids!',
+    popcorn:'*crunch crunch crunch*',
+    baby:'Hey! I\'m not a baby!',
+    egg:'I feel like I should cook this, first...',
+    salt:'Sugar yay! ugh ptoo ugh yuck! this is salt isn\'t it? why would you do that meanie!',
+    silverware:'I didn\'t know you could eat silverware!',
+    bowl:'Hey! That bowl\'s empty you meanie!',
+    milk:'Ah, a nice, cold glass of milk is always welcoming!',
+    birthday:'It\'s not my birthday, but I accept!',
+    birthday_not:[
+        'om nom nom OOOO! Monika\'s birthday cake tastes incredibly delicious!!! :star_struck:',
+        'Oooo! Thanks I\'ll have piece of Monika\'s birthday cake! And I\'ll have another piece, of the one that Natsuki made eheheh~',
+    ],
+    misc:'*om nom nom* Thank you! That was delicious! :grin:',
+    bad_food: 'Ptoo ptoo! This isn\'t food, you meanie!'
+}
+
 function handleFeed(opt) {
-    if (opt.includes('nothing')) return 'You wanna feed me something? I\'m open for anything!';
-    if (opt.includes('cookie')) {
-        return 'A cookie?? Yummy! Thank you so much!';
+    const item = opt[0]
+    
+    if (item.isArray()) {
+      return item.random();
     }
-    else if (opt.includes('cupcake')) {
-        return '*omnomnom* Ooo! This tastes just like Natsuki\'s cupcakes!';
-    }
-    else if (opt.includes('japanese')) {
-        return 'Oooo! Japanese food! Reminds me of home!';
-    }
-    else if (opt.includes('takeout')) {
-        return 'Yay we\'re getting take out! I love watching a movie with some warm takeout!';
-    }
-    else if (opt.includes('pizza')) {
-        return 'I love pizza! Thanks!';
-    }
-    else if (opt.includes('burger')) {
-        return 'Mmmmm! Burgers are delicious!';
-    }
-    else if (opt.includes('falafel')) {
-        return '*om nom nom* It\'s salty, but I like it.';
-    }
-    else if (opt.includes('ice')) {
-        return 'Puts it in mouth  Oww.. It\'s too cold and it tastes like water!';
-    }
-    else if (opt.includes('cold')) {
-        return 'AHH! Brain freeze!!';
-    }
-    else if (opt.includes('cold_drink')) {
-        return 'Sip, sip, hooray!';
-    }
-    else if (opt.includes('canned')) {
-        return 'Canned food? Aww but I don\'t have a can opener.';
-    }
-    else if (opt.includes('alcohol')) {
-        return 'H-Hey! I\'m too young for that!';
-    }
-    else if (opt.includes('coffee')) {
-        return 'Ah, the delicious beverage known as coffee! Where would I be without thee?';
-    }
-    else if (opt.includes('tea')) {
-        return 'How could I refuse a hot cup of tea? Thank you!';
-    }
-    else if (opt.includes('bread')) {
-        return 'I mean, I suppose I could survive off of plain bread...';
-    }
-    else if (opt.includes('sandwich')) {
-        return 'Oh! is this for me? thanks I love sandwiches!';
-    }
-    else if (opt.includes('waffle')) {
-        return 'I\'ve waffled before. I\'ll waffle again!!';
-    }
-    else if (opt.includes('croissant')) {
-        return 'yay! I love having these for breakfast!';
-    }
-    else if (opt.includes('pastries')) {
-        return [
-            'Mmm this is really yummy but I bet Natsuki can make better ones!',
-            'Ooooo! I love these! thanks!',
-        ].random();
-    }
-    else if (opt.includes('butter')) {
-        return 'Oooo, Butter! But... how am I supposed to eat it without some toast?';
-    }
-    else if (opt.includes('pepper')) {
-        return '***OWOWOWOWHOTHOTHOTHOT!!!***';
-    }
-    else if (opt.includes('cooking')) {
-        return 'I made eggs and toast!';
-    }
-    else if (opt.includes('mexican')) {
-        return 'Ole!';
-    }
-    else if (opt.includes('sweets')) {
-        return 'Sweets! My one, true weakness!! *omnomnomnomnom*';
-    }
-    else if (opt.includes('peanuts')) {
-        return 'Ooo! peanuts! they always make me remember when MC and I went to the fair as kids!';
-    }
-    else if (opt.includes('popcorn')) {
-        return '*crunch crunch crunch*';
-    }
-    else if (opt.includes('baby')) {
-        return 'Hey! I\'m not a baby!';
-    }
-    else if (opt.includes('egg')) {
-        return 'I feel like I should cook this, first...';
-    }
-    else if (opt.includes('salt')) {
-        return 'Sugar yay! ugh ptoo ugh yuck! this is salt isn\'t it? why would you do that meanie!';
-    }
-    else if (opt.includes('silverware')) {
-        return 'I didn\'t know you could eat silverware!';
-    }
-    else if (opt.includes('bowl')) {
-        return 'Hey! That bowl\'s empty you meanie!';
-    }
-    else if (opt.includes('milk')) {
-        return 'Ah, a nice, cold glass of milk is always welcoming!';
-    }
-    else if (opt.includes('birthday_not')) {
-        return 'It\'s not my birthday, but I accept!';
-    }
-    else if (opt.includes('birthday')) {
-        return [
-            'om nom nom OOOO! Monika\'s birthday cake tastes incredibly delicious!!! :star_struck:',
-            'Oooo! Thanks I\'ll have piece of Monika\'s birthday cake! And I\'ll have another piece, of the one that Natsuki made eheheh~',
-        ].random();
-    }
-    else if (opt.includes('misc')) {
-        return '*om nom nom* Thank you! That was delicious! :grin:';
-    }
-    else if (opt.includes('bad_food')) {
-        return 'Ptoo ptoo! This isn\'t food, you meanie!';
-    }
+    else return item;
 }
 
 const hang_reg = /(^|[^A-Za-z])h(a|u)ng(s|ing|ed)?([^A-Za-z]|$)/

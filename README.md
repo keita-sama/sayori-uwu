@@ -21,4 +21,7 @@ A recreation of a popular Sayori bot that went down.
 - [x] tickle
 - [x] trigger
 
+If want to inprove the code in this repo - feel free to make a PR!
+<br>
+<br>
 **\~STILL IN PROGRESS\~**
