@@ -4,7 +4,6 @@ const { commands } = require('../data');
 const { MessageEmbed } = require('discord.js');
 module.exports = {
   name: 'help',
-  description: 'DESCRIPTION',
   execute: async (client, message, args, db) => {
     const cmdArr = [];
     Object.keys(commands).forEach((command, index) => {

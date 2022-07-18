@@ -8,7 +8,6 @@ require('../misc/functions');
 
 module.exports = {
     name: 'poem',
-    description: '',
     execute: async (client, message, args, db) => {
         const tamper = await db.get(`tamper_${message.guild.id}`) ?? false;
 

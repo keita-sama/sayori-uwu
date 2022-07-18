@@ -4,7 +4,6 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
   name: 'tamper',
-  description: 'Fix or mess up Sayori\'s personality!',
   execute: async (client, message, _args, db) => {
     const currentTamper = await db.get(`tamper_${message.guild.id}`) ?? false;
 
