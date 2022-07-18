@@ -6,8 +6,7 @@ module.exports = {
   name: 'tamper',
   description: 'Fix or mess up Sayori\'s personality!',
   execute: async (client, message, _args, db) => {
-    let currentTamper = await db.get(`tamper_${message.guild.id}`);
-    if (currentTamper === null) currentTamper = false;
+    const currentTamper = await db.get(`tamper_${message.guild.id}`) ?? false;
 
     console.log(currentTamper);
     const embed = new MessageEmbed().setColor(client.color);

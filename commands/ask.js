@@ -7,10 +7,9 @@ module.exports = {
   name: 'ask',
   description: '',
   execute: async (client, message, _args, db) => {
-    let tamper = await db.get(`tamper_${message.guild.id}`);
-    if (tamper === null) tamper = false;
+    const tamper = await db.get(`tamper_${message.guild.id}`) ?? false;
 
-    tamper === false || tamper === null
+    tamper === false
       ? askResponses.push('Maybe we should ask The Magic Conch, instead.')
       : askResponses.push('As sure as I\'m depressed!');
 
