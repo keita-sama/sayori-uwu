@@ -3,33 +3,33 @@
 const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-  name: 'tamper',
+  name: 'triggers',
   execute: async (client, message, _args, db) => {
-    const currentTamper = await db.get(`tamper_${message.guild.id}`) ?? false;
+    const trigger = await db.get(`triggers_${message.guild.id}`) ?? true;
     const embed = new MessageEmbed().setColor(client.color);
 
-        if (!message.member.permissions.has('ADMINISTRATOR')) {
+    if (!message.member.permissions.has('ADMINISTRATOR')) {
       return message.channel.send({
         embeds: [
           embed.setTitle('You have no permission to do that!')
         ]
       })
     }
-    if (currentTamper === false) {
+    if (trigger === false) {
       message.channel.send({
         embeds: [
-          embed.setTitle('Sayori got tampered with!'),
+          embed.setTitle('Triggers have been enabled'),
         ],
       });
-      await db.set(`tamper_${message.guild.id}`, true);
+      await db.set(`triggers_${message.guild.id}`, true);
     }
     else {
       message.channel.send({
         embeds: [
-          embed.setTitle('Sayori got fixed!'),
+          embed.setTitle('Triggers have been disabled!'),
         ],
       });
-      await db.set(`tamper_${message.guild.id}`, false);
+      await db.set(`triggers_${message.guild.id}`, false);
     }
   },
 };
