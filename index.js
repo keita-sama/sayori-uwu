@@ -3,7 +3,6 @@
 require('dotenv').config();
 const { Sayori } = require('./misc/Client');
 const { server } = require('./server');
-
 const Database = require('@replit/database');
 const db = new Database();
 
