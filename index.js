@@ -17,8 +17,6 @@ const sayori = new Sayori({
   prefixes: [
     's_',
     'sayori_',
-    '<@871877648547205180> ',
-    '<@!871877648547205180> ',
   ],
   devMode: false,
 });
