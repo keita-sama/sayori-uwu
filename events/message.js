@@ -9,12 +9,16 @@ module.exports = {
     once: false,
     async execute(message) {
         if (message.author.bot) return;
-        if (message.client.devMode && !message.client.developers.includes(message.author.id)) return message.channel.send('Sorry, but I\'m currently in Developer mode!');
+        if (message.client.devMode && !message.client.developers.includes(message.author.id)) {
+            message.channel.send({
+                content: 'Sorry, but I\'m currently in Developer mode!',
+            });
+        }
         if (!message.client.prefixes.some(pre => message.content.toLowerCase().startsWith(pre))) {
             const triggerState = await db.get(`triggers_${message.guild.id}`) ?? true;
             if (trigger(message.content.toLowerCase()) === 'None' || triggerState === false) return;
             return message.channel.send({
-              content: trigger(message.content.toLowerCase()),
+                content: trigger(message.content.toLowerCase()),
             });
         }
         else {
@@ -31,7 +35,7 @@ module.exports = {
             catch (err) {
                 console.log(err.stack);
                 message.channel.send({
-                  content: 'Something went wrong :(',
+                    content: 'Something went wrong :(',
                 });
             }
         }
