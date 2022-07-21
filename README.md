@@ -8,7 +8,7 @@ A recreation of a popular Sayori bot that went down.
 - [x] feed
 - [x] headpat
 - [x] help
-- [ ] hug
+- [x] hug
 - [ ] support - Not planned
 - [x] invite
 - [x] jokes

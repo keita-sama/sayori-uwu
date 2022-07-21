@@ -18,6 +18,23 @@ const poems = {
     }],
 };
 
+const hugResponses = {
+    self: [
+        'A hug for me? Yay! *hugs myself*',
+        'Well, if you insist! *hugs myself*',
+        'Awww, you\'re too kind! *hugs myself*',
+        'How can I say no to that? *hugs myself*',
+    ],
+    target: ((targetName) => {
+        return [
+            `One hug, coming right up! *hugs ${targetName}*`,
+            `I'll try not to squeeze too hard! *hugs ${targetName}*`,
+            `Time for the super-mega-cinnamon-bun hug! *hugs ${targetName}*`,
+            `How could I say no to a hug? *hugs ${targetName}*`,
+            `Yay, hugs! *hugs ${targetName}*`,
+        ];
+    }),
+};
 const jokes = [
     'What do you call a mix between a fish and an elephant? Swimming trunks!',
     'I was going to tell a joke about a skunk, but, honestly, it really stinks.',
@@ -426,6 +443,6 @@ exports.tickle = tickle;
 exports.askResponses = askResponses;
 exports.headpatResponses = headpatResponses;
 exports.commands = commands;
-
+exports.hugResponses = hugResponses
 
 // I think I've  lost my mind
