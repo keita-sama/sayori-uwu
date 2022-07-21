@@ -8,12 +8,12 @@ module.exports = {
     const currentTamper = await db.get(`tamper_${message.guild.id}`) ?? false;
     const embed = new MessageEmbed().setColor(client.color);
 
-        if (!message.member.permissions.has('ADMINISTRATOR')) {
+    if (!message.member.permissions.has('ADMINISTRATOR')) {
       return message.channel.send({
         embeds: [
-          embed.setTitle('You have no permission to do that!')
-        ]
-      })
+          embed.setTitle('You have no permission to do that!'),
+        ],
+      });
     }
     if (currentTamper === false) {
       message.channel.send({

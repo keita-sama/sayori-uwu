@@ -11,9 +11,9 @@ module.exports = {
     if (!message.member.permissions.has('ADMINISTRATOR')) {
       return message.channel.send({
         embeds: [
-          embed.setTitle('You have no permission to do that!')
-        ]
-      })
+          embed.setTitle('You have no permission to do that!'),
+        ],
+      });
     }
     if (trigger === false) {
       message.channel.send({
