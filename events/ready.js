@@ -5,7 +5,6 @@ module.exports = {
     once: true,
     execute: (client) => {
         console.log('Sayori online!');
-
         const statuses = [
             'Type \'s_help\' for help!',
             'Doki Doki Literature Club',

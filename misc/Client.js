@@ -12,7 +12,7 @@ exports.Sayori = class Sayori extends Client {
     this.prefixes = prefixes;
     this.devMode = devMode;
     this.commands = new Collection();
-    this.id = 871877648547205180;
+    this.id = '871877648547205180';
     this.description = desc;
     this.color = '#3eb0ff';
   }
