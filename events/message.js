@@ -12,10 +12,9 @@ module.exports = {
         if (message.client.devMode && !message.client.developers.includes(message.author.id)) return message.channel.send('Sorry, but I\'m currently in Developer mode!');
         if (!message.client.prefixes.some(pre => message.content.toLowerCase().startsWith(pre))) {
             const triggerState = await db.get(`triggers_${message.guild.id}`) ?? true;
-            const trigger = trigger(message.content.toLowerCase())
-            if (trigger === 'None' || triggerState === false) return;
+            if (trigger(message.content.toLowerCase()) === 'None' || triggerState === false) return;
             return message.channel.send({
-              content: trigger,
+              content: trigger(message.content.toLowerCase()),
             });
         }
         else {
