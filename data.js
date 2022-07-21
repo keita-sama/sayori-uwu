@@ -35,6 +35,7 @@ const hugResponses = {
         ];
     }),
 };
+
 const jokes = [
     'What do you call a mix between a fish and an elephant? Swimming trunks!',
     'I was going to tell a joke about a skunk, but, honestly, it really stinks.',
@@ -443,6 +444,6 @@ exports.tickle = tickle;
 exports.askResponses = askResponses;
 exports.headpatResponses = headpatResponses;
 exports.commands = commands;
-exports.hugResponses = hugResponses
+exports.hugResponses = hugResponses;
 
 // I think I've  lost my mind
