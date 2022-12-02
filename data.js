@@ -431,8 +431,8 @@ function trigger(text) {
 }
 
 // Functions
-exports.handleFeed = handleFeed;
 exports.feed = feed;
+exports.handleFeed = handleFeed;
 exports.trigger = trigger;
 
 // Data
@@ -445,5 +445,7 @@ exports.askResponses = askResponses;
 exports.headpatResponses = headpatResponses;
 exports.commands = commands;
 exports.hugResponses = hugResponses;
+
+// TODO: TYPESCRIPT CONVERSION
 
 // I think I've  lost my mind
